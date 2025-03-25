@@ -1,0 +1,44 @@
+<!-- Menu Lateral para telas grandes e Menu Móvel para telas pequenas -->
+<aside class="w-64 bg-blue-900 text-white min-h-screen p-5 md:block hidden">
+  <h1 class="text-xl font-bold mb-6">MEU RH360</h1>
+  <nav>
+    <ul>
+      <ng-container *ngFor="let item of menuItems">
+        <li class="mb-2">
+          <span class="font-bold">{{ item.label }}</span>
+        </li>
+        <ng-container *ngFor="let subItem of item.subItems">
+          <li class="mb-2 p-2 rounded hover:bg-blue-700">
+            <a [routerLink]="subItem.link">{{ subItem.label }}</a>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+  </nav>
+</aside>
+
+<div class="md:hidden flex justify-between items-center p-4 bg-blue-900 text-white">
+  <h1 class="text-xl font-bold">MEU RH360</h1>
+  <button (click)="isMenuOpen = !isMenuOpen" class="text-white !w-20 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
+
+<div *ngIf="isMenuOpen" class="md:hidden bg-blue-900 text-white p-4">
+  <ul>
+    <ng-container *ngFor="let item of menuItems">
+      <li class="mb-4">
+        <span class="font-bold">{{ item.label }}</span>
+        <ul>
+          <ng-container *ngFor="let subItem of item.subItems">
+            <li class="mb-2 p-2 rounded hover:bg-blue-700">
+              <a [routerLink]="subItem.link">{{ subItem.label }}</a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>

@@ -1,0 +1,196 @@
+<div class="w-screen h-[100vh] px-10">
+  <h2 class="text-2xl font-semibold text-gray-700 mb-6">
+    {{ hasEditing ? "Editar empresa" : "Configurar empresa" }}
+  </h2>
+  <form class="flex flex-col gap-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="block text-gray-700 font-medium">Tipo Empresa</label>
+      <input
+        type="text"
+        class="p-2 w-full md:!w-40"
+        formControlName="type"
+        [attr.data-error]="getStatusControll('type')"
+      />
+    </div>
+    <div class="flex flex-col md:flex-row gap-2">
+      <div class="w-full md:w-8/12">
+        <label class="block text-gray-700 font-medium">Nome da Empresa *</label>
+        <input
+          type="text"
+          class="p-2"
+          formControlName="company_name"
+          [attr.data-error]="getStatusControll('company_name')"
+        />
+        <p
+          *ngIf="getStatusControll('company_name')"
+          class="text-red-500 text-sm mt-1"
+        >
+          {{
+            isErrorRequired("company_name")
+              ? "O nome da empresa é obrigatório"
+              : "Digite um nome empresa válido"
+          }}
+        </p>
+      </div>
+      <div class="w-full md:w-4/12">
+        <label class="block text-gray-700 font-medium">CNPJ da Empresa *</label>
+        <input
+          type="text"
+          class="p-2"
+          mask="00.000.000/0000-00"
+          formControlName="company_document"
+          [attr.data-error]="getStatusControll('company_document')"
+        />
+        <p
+          *ngIf="getStatusControll('company_document')"
+          class="text-red-500 text-sm mt-1"
+        >
+          {{
+            isErrorRequired("company_document")
+              ? "O CNPJ é obrigatório"
+              : "Digite um CNPJ válido"
+          }}
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-2">
+      <div>
+        <label class="block text-gray-700 font-medium">CEP</label>
+        <input
+          type="text"
+          formControlName="zip_code"
+          [attr.data-error]="getStatusControll('zip_code')"
+          mask="00.000-000"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">Endereço</label>
+        <input
+          type="text"
+          formControlName="address"
+          [attr.data-error]="getStatusControll('address')"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">Bairro</label>
+        <input
+          type="text"
+          formControlName="neighborhood"
+          [attr.data-error]="getStatusControll('neighborhood')"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">Estado</label>
+        <input
+          type="text"
+          formControlName="state"
+          [attr.data-error]="getStatusControll('state')"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">Cidade</label>
+        <input
+          type="text"
+          formControlName="city"
+          [attr.data-error]="getStatusControll('city')"
+        />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">Complemento</label>
+        <input
+          type="text"
+          formControlName="complement"
+          [attr.data-error]="getStatusControll('complement')"
+        />
+      </div>
+    </div>
+    <div class="flex w-full flex-col md:flex-row gap-2">
+      <div>
+        <label class="block text-gray-700 font-medium">Celular *</label>
+        <input
+          type="text"
+          formControlName="owner_phone"
+          [attr.data-error]="getStatusControll('owner_phone')"
+          mask="(00) 00000-0000"
+        />
+        <p
+          *ngIf="getStatusControll('owner_phone')"
+          class="text-red-500 text-sm mt-1"
+        >
+          {{
+            isErrorRequired("owner_phone")
+              ? "O Celular é obrigatório"
+              : "Digite um Celular válido"
+          }}
+        </p>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium"
+          >Nome do Administrador *</label
+        >
+        <input
+          type="text"
+          formControlName="owner_name"
+          [attr.data-error]="getStatusControll('owner_name')"
+        />
+        <p
+          *ngIf="getStatusControll('owner_name')"
+          class="text-red-500 text-sm mt-1"
+        >
+          {{
+            isErrorRequired("owner_name")
+              ? "O Nome do Administrador é obrigatório"
+              : "Digite um Nome de Administrador válido"
+          }}
+        </p>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">CPF *</label>
+        <input
+          type="text"
+          formControlName="owner_document"
+          [attr.data-error]="getStatusControll('owner_document')"
+          mask="000.000.000-00"
+        />
+        <p
+          *ngIf="getStatusControll('owner_document')"
+          class="text-red-500 text-sm mt-1"
+        >
+          {{
+            isErrorRequired("owner_document")
+              ? "O CPF é obrigatório"
+              : "Digite um CPF válido"
+          }}
+        </p>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-medium">E-mail *</label>
+        <input
+          type="email"
+          formControlName="email"
+          [attr.data-error]="getStatusControll('email')"
+        />
+        <p *ngIf="getStatusControll('email')" class="text-red-500 text-sm mt-1">
+          {{
+            isErrorRequired("email")
+              ? "O E-mail é obrigatório"
+              : "Digite um E-mail válido"
+          }}
+        </p>
+      </div>
+    </div>
+    <div class="flex justify-end space-x-4 mt-4 mb-20 md:mb-0">
+      <button
+        type="button"
+        class="!bg-gray-800 w-full md:!w-24"
+        (click)="redirect('', true)"
+      >
+        Cancelar
+      </button>
+      <button type="submit" class="w-full md:!w-24">
+        {{ hasEditing ? "Atualizar" : "Salvar" }}
+      </button>
+    </div>
+  </form>
+</div>
+<app-loading *ngIf="loading"></app-loading>

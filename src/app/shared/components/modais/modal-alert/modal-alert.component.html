@@ -1,0 +1,19 @@
+<div class="p-4">
+  <div class="flex justify-center">
+    <h2>{{ data.title }}</h2>
+  </div>
+  <div class="mb-6">
+    <p class="text-center">{{ data.message }}</p>
+  </div>
+  <div
+    *ngIf="
+      data.atencao !== null && data.atencao !== undefined && data.atencao !== ''
+    "
+    class="-mt-2 py-1 h-8 rounded-md bg-vermelhosombreado border border-laranjaprincipal mb-6"
+  >
+    <p class="text-center">Motivo cancelamento: {{ data.atencao }}</p>
+  </div>
+  <div class="flex justify-center">
+    <button mat-button [mat-dialog-close]="true">Confirmar</button>
+  </div>
+</div>

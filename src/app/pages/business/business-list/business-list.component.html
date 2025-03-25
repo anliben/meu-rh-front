@@ -1,0 +1,55 @@
+<div class="flex flex-col md:flex-row">
+  <app-menu></app-menu>
+  <main class="w-screen h-screen p-8 bg-gray-100">
+    <div class="flex justify-between items-center border-b pb-3">
+      <h2 class="text-xl font-semibold">EMPRESA</h2>
+      <span class="text-gray-600">Configurações / Empresa</span>
+    </div>
+
+    <div class="my-4 p-4 bg-white flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 md:space-x-4">
+      <button data-outline="true" (click)="redirect('/business/registro')">Editar empresa</button>
+      <button data-outline="true">Gestão de filiais</button>
+      <button data-outline="true">Faixas salariais</button>
+      <button data-outline="true">Job Level</button>
+    </div>
+
+    <div class="bg-white p-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div>
+          <p class="font-semibold text-blue-900">Nome da empresa</p>
+          <p>{{business?.company_name}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">CNPJ da empresa</p>
+          <p>{{business?.company_document ?? '' | mask:'cnpj'}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">Nome do administrador</p>
+          <p>{{business?.owner_name}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">CPF administrador</p>
+          <p>{{business?.owner_document ?? '' | mask:'cpf'}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">E-mail</p>
+          <p>{{business?.email}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">Telefone</p>
+          <p>{{business?.owner_phone ?? '' | mask:'phone'}}</p>
+        </div>
+        <div>
+          <p class="font-semibold text-blue-900">CEP</p>
+          <p>{{business?.zip_code ?? '' | mask:'zip_code'}}</p>
+        </div>
+        <div class="col-span-2">
+          <p class="font-semibold text-blue-900">Endereço</p>
+          <p>
+            {{business?.address}}, {{business?.neighborhood}}, {{business?.state}} {{business?.city}},
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

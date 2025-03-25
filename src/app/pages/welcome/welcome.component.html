@@ -1,0 +1,29 @@
+<div class="flex flex-col md:flex-row">
+  <app-menu></app-menu>
+  <div
+    class="p-8 w-full flex flex-col md:flex-row h-screen gap-[10vw] px-12 md:justify-center items-center"
+  >
+    <div class="flex flex-col items-center">
+      <h1 class="text-2xl font-semibold text-gray-700">
+        Olá, Henry. Seja bem-vindo
+      </h1>
+      <p class="text-gray-500 mt-2">
+        É necessário configurar a empresa matriz para visualizar todas as
+        informações do sistema.
+      </p>
+      <button
+        class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+        (click)="redirect()"
+      >
+        INICIAR CONFIGURAÇÃO
+      </button>
+    </div>
+    <div class="flex justify-center">
+      <img
+        src="https://lesliesuh.github.io/dont-panic/imgs/social-support.png"
+        alt="Ilustração"
+        width="1000px"
+      />
+    </div>
+  </div>
+</div>

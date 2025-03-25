@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+body::-webkit-scrollbar {
+  width: 0.0em;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+
+html {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+
+.mat-mdc-snack-bar-container {
+  &.sucess-snackbar {
+    --mdc-snackbar-container-color: #1CDB92;
+    --mat-mdc-snack-bar-button-color: #fff --mdc-snackbar-supporting-text-color: #fff;
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #db1c1c;
+    --mat-mdc-snack-bar-button-color: #fff --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #FD4F04 !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #000000 !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #ffffff !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: red !important;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: red;
+}
+
+.mat-expansion-panel {
+  box-shadow: none !important;
+}
+
+.custom-mat-menu {
+  margin-left: 10px !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 0px !important;
+}
+
+input[type="time"]::time-picker {
+  width: 100%;
+  background-color: #FD4F04;
+}
+
+.select-time {
+  width: 100px !important;
+}
+
+.mat-slide-toggle .mat-slide-toggle-thumb {
+  width: 13px !important;
+  height: 13px !important;
+  background-color: #24c368 !important;
+  box-shadow: none !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -57%);
+  border-radius: 3px
+}
+
+.no-scroll-modal .mat-dialog-container {
+  overflow: hidden !important;
+  ;
+  display: flex;
+
+  mat-dialog-container {
+    overflow: hidden;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  @apply w-full px-2 py-1 mt-1 border border-gray-500 rounded-md;
+}
+
+input[data-error='true'],
+input[data-error='true']:focus {
+  @apply !border !border-red-500 !ring-0 outline-0;
+}
+
+select {
+  @apply w-full px-2 py-1 mt-1 border border-gray-500 rounded-md;
+}
+
+select[data-error='true'],
+select[data-error='true']:focus {
+  @apply !border !border-red-500 !ring-0 outline-0;
+}
+
+button {
+  @apply w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 cursor-pointer disabled:bg-gray-600;
+}
+
+button[data-outline='true'] {
+  @apply bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+}

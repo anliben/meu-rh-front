@@ -1,0 +1,15 @@
+export type Business = {
+  type?: string,
+  company_name: string,
+  company_document: string,
+  zip_code?: string,
+  address?: string,
+  neighborhood?: string,
+  state?: string,
+  city?: string,
+  complement?: string,
+  owner_phone: string,
+  owner_name: string,
+  owner_document: string,
+  email: string,
+}

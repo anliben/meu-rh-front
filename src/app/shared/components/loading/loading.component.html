@@ -1,0 +1,32 @@
+<div
+  class="fixed top-0 left-0 right-0 bottom-2 w-full h-full z-10 overflow-hidden bg-gray-100 opacity-80 flex flex-col items-center justify-center transition-opacity"
+>
+  <div class="!opacity-100 flex justify-center -mt-12">
+    <div class="flex flex-col">
+      <div class="w-full flex justify-center">
+        <svg
+          class="-ml-2 animate-spin"
+          width="50px"
+          height="50px"
+          viewBox="0 0 16 16"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+        >
+          <g fill="#FD4F04" fill-rule="evenodd" clip-rule="evenodd">
+            <path
+              d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"
+              opacity=".2"
+            />
+
+            <path
+              d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"
+            />
+          </g>
+        </svg>
+      </div>
+      <h2 class="text-center text-laranjaprincipal text-lg mt-4 ml-2">
+        {{ loadingMessage }}
+      </h2>
+    </div>
+  </div>
+</div>

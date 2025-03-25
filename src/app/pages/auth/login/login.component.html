@@ -1,0 +1,56 @@
+<div class="flex flex-col md:flex-row w-full h-screen items-center justify-center">
+  <div class="w-full md:w-8/12 h-screen flex flex-col items-center justify-center text-center bg-cover bg-center pr-10"
+    style="
+      background-image: url('https://meurh360.com.br/wp-content/themes/wp-meurh360/dist/a1f57ac40dcb8231360b.webp');
+    ">
+    <h2 class="text-white text-xl font-semibold">
+      5k+ de clientes satisfeitos
+    </h2>
+    <p class="text-white mt-4">
+      “Meu RH 360 é incrível! Ele é a solução perfeita para gerenciamento de
+      pessoas e processos de contratação...”
+    </p>
+    <p class="text-white mt-2 font-bold">JG - Empresa Lorem Ipsum</p>
+  </div>
+
+  <div class="w-full md:w-4/12 h-screen p-8">
+    <div class="w-full flex-col flex items-center md:items-start justify-center md:justify-start">
+      <img class="mb-4 h-20 md:h-12 self-center md:self-start"
+        src="https://meurh360.com.br/wp-content/uploads/2024/10/logo-mrh360.webp" />
+      <h2 class="text-xl font-bold text-gray-700">Entre em sua conta</h2>
+      <p class="text-sm text-gray-500">Use seus dados de acesso</p>
+    </div>
+
+    <form class="mt-2" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mt-2">
+        <label class="block text-gray-700 font-medium">E-mail</label>
+        <input type="email" formControlName="email" [attr.data-error]="getStatusControll('email')"
+          placeholder="Digite seu e-mail" />
+        <p *ngIf="getStatusControll('email')" class="text-red-500 text-sm mt-1">
+          {{
+          isErrorRequired("email")
+          ? "O email é obrigatório"
+          : "Digite um email válido"
+          }}
+        </p>
+      </div>
+      <div class="mt-2">
+        <label class="block text-gray-700 font-medium">Senha</label>
+        <input type="password" formControlName="password" [attr.data-error]="getStatusControll('password')"
+          placeholder="Digite uma senha forte" />
+        <p *ngIf="getStatusControll('password')" class="text-red-500 text-sm mt-1">
+          {{
+          isErrorRequired("password")
+          ? "A senha é obrigatório"
+          : "Digite uma senha válido"
+          }}
+        </p>
+      </div>
+      <button type="submit" class="mt-6">Entrar</button>
+    </form>
+    <p class="text-gray-500 text-sm text-center mt-6">
+      Não tem uma conta?
+      <a href="/register" class="text-blue-500 underline">Cadastre-se</a>
+    </p>
+  </div>
+</div>
